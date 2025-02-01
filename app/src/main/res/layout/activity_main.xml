@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="СТАРТ"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textFirstOperand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Первый операнд"
+        app:layout_constraintTop_toBottomOf="@id/start_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textSecondOperand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Второй операнд"
+        app:layout_constraintTop_toBottomOf="@id/textFirstOperand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Операция"
+        app:layout_constraintTop_toBottomOf="@id/textSecondOperand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результат"
+        app:layout_constraintTop_toBottomOf="@id/textOperation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textEqually"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        app:layout_constraintTop_toBottomOf="@id/textResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ответ"
+        app:layout_constraintTop_toBottomOf="@id/textEqually"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/false_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="НЕВЕРНО"
+        app:layout_constraintTop_toBottomOf="@id/textAnswer"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/true_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ВЕРНО"
+        app:layout_constraintTop_toBottomOf="@id/textAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/textViewTrue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Правильных ответов: 0"
+        app:layout_constraintTop_toBottomOf="@id/false_button"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textNumberFalse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Неправильных ответов: 0"
+        app:layout_constraintTop_toBottomOf="@id/textViewTrue"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Процент правильных ответов: 0.00%"
+        app:layout_constraintTop_toBottomOf="@id/textNumberFalse"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewTimeMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Максимальное время: 0 ms"
+        app:layout_constraintTop_toBottomOf="@id/textViewPercentage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewTimeMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Минимальное время: 0 ms"
+        app:layout_constraintTop_toBottomOf="@id/textViewTimeMax"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewTimeAvg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Среднее время: 0 ms"
+        app:layout_constraintTop_toBottomOf="@id/textViewTimeMin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Время: 0 ms"
+        app:layout_constraintTop_toBottomOf="@id/textViewTimeAvg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
