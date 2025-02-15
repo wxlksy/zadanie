@@ -5,20 +5,18 @@ import android.os.Bundle
 import android.os.SystemClock
 import com.example.proverka.databinding.ActivityMainBinding
 import kotlin.random.Random
-import kotlin.Boolean
 
-class MainActivity : AppCompatActivity()
-{
+class MainActivity : AppCompatActivity() {
     private var startTime: Long = 0
     private var correctAnswers = 0
-    private var totalAnswer = 0
-    private var maxTime = Long.MAX_VALUE
-    private var minTime = Long.MIN_VALUE
-    private var totalTime = 0L
+    private var totalAnswers = 0
+    private var maxTime: Long = 0
+    private var minTime: Long = Long.MAX_VALUE
+    private var totalTime: Long = 0
 
-    private lateinit var  binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -39,8 +37,7 @@ class MainActivity : AppCompatActivity()
         }
     }
 
-    private fun generateExample()
-    {
+    private fun generateExample() {
         val operand1 = Random.nextInt(10, 100)
         val operand2 = Random.nextInt(10, 100)
         val operator = listOf('+', '-', '*', '/').random()
@@ -49,8 +46,7 @@ class MainActivity : AppCompatActivity()
         binding.textSecondOperand.text = operand2.toString()
         binding.textOperation.text = operator.toString()
 
-        val correctAnswer = when (operator)
-        {
+        val correctAnswer = when (operator) {
             '+' -> operand1 + operand2
             '-' -> operand1 - operand2
             '*' -> operand1 * operand2
@@ -58,11 +54,9 @@ class MainActivity : AppCompatActivity()
             else -> 0
         }
 
-        val displayedAnswer = if (Random.nextBoolean())
-        { correctAnswers }
-
-        else
-        {
+        val displayedAnswer = if (Random.nextBoolean()) {
+            correctAnswer
+        } else {
             when (operator)
             {
                 '+' -> correctAnswers + Random.nextInt(1, 10)
@@ -73,50 +67,36 @@ class MainActivity : AppCompatActivity()
             }
         }
 
-        binding.textResult.text = if (operator == '/')
-        {
+        binding.textResult.text = if (operator == '/') {
             String.format("%.2f", displayedAnswer)
-        }
-
-        else
-        {
+        } else {
             displayedAnswer.toString()
         }
-
     }
 
-    private fun checkAnswer(isCorrect: Boolean)
-    {
-        val elapsedTime = SystemClock.uptimeMillis() - startTime
-        totalTime += elapsedTime
-        totalAnswer++
+    private fun checkAnswer(isCorrect: Boolean) {
+        val elapsedTime = (SystemClock.uptimeMillis() - startTime) / 1000.0
+        totalTime += elapsedTime.toLong()
+        totalAnswers++
 
-        if (isCorrect)
-        {
-            correctAnswers++
-            binding.textResult.text = "ПРАВИЛЬНО"
+        if (isCorrect) { correctAnswers++ } else { }
+
+        if (totalAnswers == 1 || elapsedTime.toLong() > maxTime) {
+            maxTime = elapsedTime.toLong()
+        }
+        if (totalAnswers == 1 || elapsedTime.toLong() < minTime) {
+            minTime = elapsedTime.toLong()
         }
 
-        else
-        {
-            binding.textResult.text = "НЕ ПРАВИЛЬНО"
-        }
+        binding.textViewTimeMax.text = "Максимальное время: %.2f сек".format(maxTime.toDouble())
+        binding.textViewTimeMin.text = "Минимальное время: %.2f сек".format(minTime.toDouble())
+        binding.textViewTimeAvg.text = "Среднее время: %.2f сек".format(totalTime.toDouble() / totalAnswers)
 
-        minTime = minOf(minTime, elapsedTime)
-        maxTime = maxOf(maxTime, elapsedTime)
-
-        binding.textViewTime.text = "Время = $elapsedTime ms"
         binding.textViewTrue.text = "Правильных ответов = $correctAnswers"
-        binding.textViewFalse.text = "Неправильных ответов ${totalAnswer - correctAnswers}"
-        binding.textViewPercentage.text = "Процент правильных = ${String.format("%.2f", (correctAnswers.toDouble() / totalAnswer * 100))}%"
-        binding.textViewTimeMax.text = "Максимальное время: $maxTime ms"
-        binding.textViewTimeMin.text = "Минимальное время: $minTime ms"
-        binding.textViewTimeAvg.text = "Среднее время: ${String.format("%.2f", totalTime.toDouble() / totalAnswer)} ms"
+        binding.textViewFalse.text = "Неправильных ответов = ${totalAnswers - correctAnswers}"
+        binding.textViewPercentage.text = "Процент правильных = %.2f%%".format(correctAnswers.toDouble() / totalAnswers * 100)
 
         binding.trueButton.isEnabled = false
         binding.falseButton.isEnabled = false
-
     }
 }
-
-
