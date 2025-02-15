@@ -27,31 +27,31 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/textSecondOperand"
+        android:id="@+id/textOperation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Второй операнд"
+        android:text="Операция"
         app:layout_constraintTop_toBottomOf="@id/textFirstOperand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/textOperation"
+        android:id="@+id/textSecondOperand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Операция"
-        app:layout_constraintTop_toBottomOf="@id/textSecondOperand"
+        android:text="Второй операнд"
+        app:layout_constraintTop_toBottomOf="@id/textOperation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/textResult"
+        android:id="@+id/textAnswerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Результат"
-        app:layout_constraintTop_toBottomOf="@id/textOperation"
+        android:text="Ответ"
+        app:layout_constraintTop_toBottomOf="@id/textSecondOperand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
@@ -61,16 +61,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="="
-        app:layout_constraintTop_toBottomOf="@id/textResult"
+        app:layout_constraintTop_toBottomOf="@id/textAnswerLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/textAnswer"
+        android:id="@+id/textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ответ"
+        android:text="Результат"
         app:layout_constraintTop_toBottomOf="@id/textEqually"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="НЕВЕРНО"
-        app:layout_constraintTop_toBottomOf="@id/textAnswer"
+        app:layout_constraintTop_toBottomOf="@id/textResult"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"/>
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ВЕРНО"
-        app:layout_constraintTop_toBottomOf="@id/textAnswer"
+        app:layout_constraintTop_toBottomOf="@id/textResult"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"/>
@@ -106,7 +106,7 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/textNumberFalse"
+        android:id="@+id/textViewFalse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Неправильных ответов: 0"
@@ -119,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Процент правильных ответов: 0.00%"
-        app:layout_constraintTop_toBottomOf="@id/textNumberFalse"
+        app:layout_constraintTop_toBottomOf="@id/textViewFalse"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="10dp"/>
 
